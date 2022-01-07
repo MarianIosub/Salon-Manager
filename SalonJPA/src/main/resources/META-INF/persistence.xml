@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="SalonJPA" transaction-type="RESOURCE_LOCAL">
+        <class>org.salon.models.Client</class>
+        <class>org.salon.models.Angajat</class>
+        <class>org.salon.models.CategorieProdus</class>
+        <class>org.salon.models.Furnizor</class>
+        <class>org.salon.models.Incasare</class>
+        <class>org.salon.models.Produs</class>
+        <class>org.salon.models.Programare</class>
+        <class>org.salon.models.Salariu</class>
+        <class>org.salon.models.Serviciu</class>
+        <class>org.salon.models.Ustensila</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="Ovidiu2014"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/Salon"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL81Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.enable_lazy_load_no_trans" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

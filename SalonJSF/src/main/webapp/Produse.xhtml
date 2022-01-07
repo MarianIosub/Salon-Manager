@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Formular manipulare Produse</title>
+</h:head>
+<h:body>
+    <div style="text-align: center; margin: auto; width: 50%;">
+        <h2 style="background-color: #59A5D8;">Formular Produse</h2>
+        <h:form style="display: inline-block; align-items: center; background-color: coral;">
+            <h:panelGrid border="1" columns="2" style="margin: auto;">
+                <h:selectOneMenu id="cboProduse"
+                                 value="#{formProduse.idProdus}">
+                    <f:selectItems id="s1" var="item"
+                                   value="#{formProduse.produse}"
+                                   itemLabel="#{item.id} - #{item.denumire}"
+                                   itemValue="#{item.id}"/>
+                    <f:ajax render="@form"/>
+                </h:selectOneMenu>
+                <h:panelGrid border="1" columns="2">
+                    <h:commandButton value="Previous" actionListener="#{formProduse.prevProdus}"></h:commandButton>
+                    <h:commandButton value="Next" actionListener="#{formProduse.nextProdus}"></h:commandButton>
+                </h:panelGrid>
+                <h:outputText value="Id Produs"></h:outputText>
+                <h:outputText value="#{formProduse.produs.id}"></h:outputText>
+
+                <h:outputText value="Denumire"></h:outputText>
+                <h:inputText value="#{formProduse.produs.denumire}"></h:inputText>
+
+                <h:outputText value="Firma"></h:outputText>
+                <h:inputText value="#{formProduse.produs.firma}"></h:inputText>
+
+                <h:outputText value="Stoc"></h:outputText>
+                <h:inputText value="#{formProduse.produs.stoc}"></h:inputText>
+
+                <h:outputText value="Data Expirare"></h:outputText>
+                <h:inputText value="#{formProduse.produs.dataExpirare}">
+                    <f:convertDateTime pattern="dd-MM-yyyy" timeZone="Europe/Bucharest"/>
+                </h:inputText>
+            </h:panelGrid>
+            <h:panelGrid border="1" columns="4" style="margin: auto;">
+                <h:commandButton value="Adauga" actionListener="#{formProduse.addProdus}"></h:commandButton>
+
+                <h:commandButton value="Salveaza" actionListener="#{formProduse.saveProdus}"></h:commandButton>
+
+                <h:commandButton value="Sterge" actionListener="#{formProduse.deleteProdus}"></h:commandButton>
+
+                <h:commandButton value="Refresh" actionListener="#{formProduse.abandonProdus}"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+        <h:form>
+            <h:panelGrid border="1" columns="3" style="margin: auto; background-color: gold;">
+                <h:commandButton value="Clienti" action="/Clienti"></h:commandButton>
+                <h:commandButton value="Furnizori" action="/Furnizori"></h:commandButton>
+                <h:commandButton value="Ustensile" action="/Ustensile"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+    </div>
+</h:body>
+</html>
